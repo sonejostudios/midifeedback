@@ -72,7 +72,9 @@ class midifeedback:
                 print(
                     "r:{},g:{},b:{},color:{}".format(red, green, blue, color))
                 self.onenote(x, y, color)
-                time.sleep(0.03)
+                #time.sleep(0.03)
+
+
 
     def lightFancy(self):
         color = 60
