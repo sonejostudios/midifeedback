@@ -2,5 +2,5 @@
 midifeedback for lauchpad S
 
 
-## Installation 
-pip install scipy
+## Requirements
+apt-get install python3-tk
