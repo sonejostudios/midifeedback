@@ -8,13 +8,6 @@ class midifeedback:
     NOTEON = 0x9
     NOTEOFF = 0x8
     MIDICTRL = 11
-    NEW_CELL_STYLE = ("#cell_frame {border: 0px; "
-                      "border-radius: 5px; "
-                      "background-color: rgb(217, 217, 217);}")
-    NEW_CELL_STYLE_ROUND = ("#cell_frame {border: 0px; "
-                            "border-radius: 20px; "
-                            "background-color: rgb(217, 217, 217);}")
-
     NOTE_NAME = ['C', 'C#',
                  'D', 'D#',
                  'E',
