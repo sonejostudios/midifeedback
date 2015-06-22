@@ -82,3 +82,4 @@ class midifeedback:
             # test.closeall()
             # reload(midifeedback)
             # test.onenote(x,y)
+            #test.onenote(2,2,midifeedback.midifeedback.RED)
