@@ -1,6 +1,7 @@
 from queue import Queue, Empty
 import jack
 import time
+from PyQt5.QtGui import QImage, QColor
 
 
 class midifeedback:
@@ -55,6 +56,24 @@ class midifeedback:
         note = ((self.NOTEON << 4) + 0, pitch, color)
         self.queue_out.put(note)
 
+    def drawImg(self, path):
+        img = QImage(path)
+        for x in range(img.width()):
+            for y in range(img.height()):
+                red, green, blue, a = QColor(img.pixel(x, y)).getRgb()
+                if red > green and red > blue:
+                    color = midifeedback.RED
+                elif green > red and green > blue:
+                    color = midifeedback.GREEN
+                elif red == green and green > blue:
+                    color = midifeedback.AMBER
+                else:
+                    color = midifeedback.BLACK
+                print(
+                    "r:{},g:{},b:{},color:{}".format(red, green, blue, color))
+                self.onenote(x, y, color)
+                time.sleep(0.03)
+
     def lightFancy(self):
         color = 60
         fancylist = [19, 18, 33, 50, 67, 82, 81, 36, 37, 54, 69, 86, 101, 100,
@@ -79,7 +98,7 @@ class midifeedback:
             l = [(x, y + row) for x, y in fancylist]
             for x, y in l:
                 if min(x, y) >= 0:
-                    #print("x%s y%s" % (x, y))
+                    # print("x%s y%s" % (x, y))
                     self.onenote(x, y)
             time.sleep(1)
             self.blackall()
