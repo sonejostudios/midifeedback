@@ -3,4 +3,4 @@ midifeedback for lauchpad S
 
 
 ## Requirements
-apt-get install python3-tk
+pyqt5
