@@ -19,7 +19,7 @@ class midifeedback:
     def __init__(self):
         self.queue_out = Queue()
 
-        self.client = jack.Client("SB Midi Feedback")
+        self.client = jack.Client("Launchpad Midi Feedback")
         self.midi_out = self.client.midi_outports.register("output")
         self.client.set_process_callback(self.my_callback)
         self.client.activate()
