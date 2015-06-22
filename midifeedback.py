@@ -91,3 +91,4 @@ class midifeedback:
 #test.blackall()
 #test.closeall()
 #reload(midifeedback)
+#test.onenote(x,y)
