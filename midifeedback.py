@@ -71,10 +71,10 @@ class midifeedback:
         for pitch in range(128):
             note = ((self.NOTEON << 4) + 0, pitch, 60)
             self.queue_out.put(note)
-            time.sleep(0.5)
+            time.sleep(0.1)
             note = ((self.NOTEON << 4) + 0, pitch, 12)
             self.queue_out.put(note)
-            time.sleep(0.5)
+            time.sleep(0.1)
 
 
 #use:
