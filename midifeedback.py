@@ -15,10 +15,10 @@ class midifeedback:
                  'A', 'A#',
                  'B']
 
-    GREEN=60
-    RED=15
-    AMBER=63
-    BLACK=12
+    GREEN = 60
+    RED = 15
+    AMBER = 63
+    BLACK = 12
 
     def __init__(self):
         self.queue_out = Queue()
@@ -59,7 +59,6 @@ class midifeedback:
         color = 60
         fancylist = [19, 18, 33, 50, 67, 82, 81, 36, 37, 54, 69, 86, 101, 100,
                      84, 68, 52]
-
         for pitch in fancylist:
             note = ((self.NOTEON << 4) + 0, pitch, color)
             self.queue_out.put(note)
@@ -73,6 +72,18 @@ class midifeedback:
             self.queue_out.put(note)
             time.sleep(0.1)
 
+    def tetris(self):
+        color = 60
+        fancylist = [(2, 0), (3, 0), (4, 0), (2, -1)]
+        for row in range(8):
+            l = [(x, y + row) for x, y in fancylist]
+            for x, y in l:
+                if min(x, y) >= 0:
+                    #print("x%s y%s" % (x, y))
+                    self.onenote(x, y)
+            time.sleep(1)
+            self.blackall()
+
 
             # use:
             # import midifeedback
@@ -82,4 +93,4 @@ class midifeedback:
             # test.closeall()
             # reload(midifeedback)
             # test.onenote(x,y)
-            #test.onenote(2,2,midifeedback.midifeedback.RED)
+            # test.onenote(2,2,midifeedback.midifeedback.RED)
