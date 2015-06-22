@@ -15,6 +15,11 @@ class midifeedback:
                  'A', 'A#',
                  'B']
 
+    GREEN=60
+    RED=15
+    AMBER=63
+    BLACK=12
+
     def __init__(self):
         self.queue_out = Queue()
 
@@ -45,7 +50,7 @@ class midifeedback:
         self.client.deactivate()
         self.client.close()
 
-    def onenote(self, pitchx, pitchy, color=60):
+    def onenote(self, pitchx, pitchy, color=GREEN):
         pitch = pitchx + (pitchy * 16)
         note = ((self.NOTEON << 4) + 0, pitch, color)
         self.queue_out.put(note)
