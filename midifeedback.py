@@ -126,4 +126,4 @@ class midifeedback:
             # reload(midifeedback)
             # test.onenote(x,y)
             # test.onenote(2,2,midifeedback.midifeedback.RED)
-            # test.soft_blink(32, 0.25, midifeedback.midifeedback().GREEN)
+            # test.soft_blink(0, 32, 0.25, midifeedback.midifeedback().GREEN)
