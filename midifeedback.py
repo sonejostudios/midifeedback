@@ -91,7 +91,18 @@ class midifeedback:
             time.sleep(0.1)
             note = ((self.NOTEON << 4) + 0, pitch, 12)
             self.queue_out.put(note)
-            time.sleep(0.1)
+
+
+    def soft_blink(self, pitch, blink_time, blink_color):
+        while True:
+            note = ((self.NOTEON << 4) + 0, pitch, blink_color)
+            self.queue_out.put(note)
+            time.sleep(blink_time)
+            note = ((self.NOTEON << 4) + 0, pitch, self.BLACK)
+            self.queue_out.put(note)
+            time.sleep(blink_time)
+
+
 
     def tetris(self):
         color = 60
@@ -115,3 +126,4 @@ class midifeedback:
             # reload(midifeedback)
             # test.onenote(x,y)
             # test.onenote(2,2,midifeedback.midifeedback.RED)
+            # test.soft_blink(32, 0.25, midifeedback.midifeedback().GREEN)
