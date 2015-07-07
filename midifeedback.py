@@ -93,12 +93,12 @@ class midifeedback:
             self.queue_out.put(note)
 
 
-    def soft_blink(self, pitch, blink_time, blink_color):
+    def soft_blink(self, channel, pitch, blink_time, blink_color):
         while True:
-            note = ((self.NOTEON << 4) + 0, pitch, blink_color)
+            note = ((self.NOTEON << 4) + channel, pitch, blink_color)
             self.queue_out.put(note)
             time.sleep(blink_time)
-            note = ((self.NOTEON << 4) + 0, pitch, self.BLACK)
+            note = ((self.NOTEON << 4) + channel, pitch, self.BLACK)
             self.queue_out.put(note)
             time.sleep(blink_time)
 
